@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-3" *ngFor="let l of list">
-    <div class="border bg-white mt-3 rounded-lg shd grow">
+    <div class="border bg-white mt-3 rounded-lg">
       <img src="{{l.image}}" height="200px">
      <div class="text-left m-3">
        <span><b>{{l.name}}</b></span>
        <div>{{l.spec}}</div>
        <div>Price: <b>{{l.price}}</b></div>
+       <button class="btn btn-primary mt-1">View Details</button>
      </div>
   </div>
   </div>
