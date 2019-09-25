@@ -1,1 +1,26 @@
-<p>home-page works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="row mx-0 bg-light">
+  <div class="col-2">
+    <form>
+      <div>
+        <label>Price:</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="range1"> Less than ₹500</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="range2"> ₹500 - ₹1000 </label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="range3"> ₹1000 - ₹2000 </label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="range4"> more than ₹2000 </label>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-10 border-left">
+    <app-product-list></app-product-list>
+  </div>
+</div>
