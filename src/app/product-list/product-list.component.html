@@ -1,1 +1,12 @@
-<p>product-list works!</p>
+<div class="row">
+  <div class="col-3" *ngFor="let l of list">
+    <div class="border bg-white mt-3 rounded-lg shd grow">
+      <img src="{{l.image}}" height="200px">
+     <div class="text-left m-3">
+       <span><b>{{l.name}}</b></span>
+       <div>{{l.spec}}</div>
+       <div>Price: <b>{{l.price}}</b></div>
+     </div>
+  </div>
+  </div>
+</div>

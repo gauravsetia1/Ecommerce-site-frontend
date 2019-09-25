@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-product-list',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-
-  constructor() { }
+  list;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getListFromServer().subscribe((data) => {
+      this.list = data;
+    });
   }
 
+  getListFromServer() {
+    const url = './assets/products.json';
+    return this.http.get(url);
+  }
 }
