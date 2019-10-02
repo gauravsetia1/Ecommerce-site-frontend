@@ -9,7 +9,13 @@ export class UserCartComponent implements OnInit {
 
   constructor() { }
 
+  product = {
+    name: 'Iphone XS',
+    image: './assets/images/iphone.PNG',
+    spec: '3GB|64GB|3000mAH',
+    price: '1999'
+  };
+
   ngOnInit() {
   }
-
 }

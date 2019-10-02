@@ -11,6 +11,9 @@ import { UserCartComponent } from './user-cart/user-cart.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ProductListService} from './product-list/product-list.service';
+import {ProductDetailsService} from './product-details/product-details.service';
+import {NavBarService} from './nav-bar/nav-bar.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductListService, ProductDetailsService, NavBarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

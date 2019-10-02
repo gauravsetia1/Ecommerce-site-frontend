@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ProductListService} from './product-list.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,17 +9,12 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   list;
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private productListService: ProductListService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getListFromServer().subscribe((data) => {
+    this.productListService.getListFromServer().subscribe((data) => {
       this.list = data;
     });
-  }
-
-  getListFromServer() {
-    const url = './assets/products.json';
-    return this.http.get(url);
   }
 
   onSelect(product) {
