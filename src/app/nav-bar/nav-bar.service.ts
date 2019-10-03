@@ -8,5 +8,4 @@ export class NavBarService {
 
   constructor(private http: HttpClient) { }
 
-
 }

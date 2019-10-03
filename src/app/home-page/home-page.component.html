@@ -1,27 +1,79 @@
 <!--<app-nav-bar></app-nav-bar>-->
+<nav class="navbar navbar-expand-sm color justify-content-center mt-5 pt-3">
+  <ul class="navbar-nav">
+    <li class="nav-item" style="min-width: 150px" (click)="ngOnInit()" >
+      <a class="nav-link text-dark">Home</a>
+    </li>
+    <li class="nav-item" style="min-width: 150px" (click)="category('books')">
+      <a class="nav-link text-dark">Books</a>
+    </li>
+    <li class="nav-item" style="min-width: 150px" (click)="category('electronics')">
+      <a class="nav-link text-dark">Electronics</a>
+    </li>
+    <li class="nav-item" style="min-width: 150px" (click)="category('fashion')">
+      <a class="nav-link text-dark">Fashion</a>
+    </li>
+    <li class="nav-item" style="min-width: 150px" (click)="category('sports')">
+      <a class="nav-link text-dark">Sports</a>
+    </li>
+  </ul>
+</nav>
+<ngb-carousel class="bg-secondary bdr-top">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="./assets/images/iball.PNG" alt="iball" height="350px" width="1000px">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="./assets/images/redmi.PNG" alt="redmi" height="350px" width="1000px">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="./assets/images/flight.PNG" alt="flight" height="350px" width="1000px">
+    </div>
+  </ng-template>
+</ngb-carousel>
+
 <div class="row mx-0 color">
   <div class="col-2 bdr-top pt-3">
+    <h2>Filters</h2>
+    <hr>
     <form>
       <div>
         <label>Price:</label>
       </div>
-      <div class="checkbox">
-        <label><input type="checkbox" name="range1"> Less than ₹500</label>
+      <div class="radio" (click)="categoryAndPrice(0,500)">
+        <label><input type="radio" name="range"> Less than ₹500</label>
       </div>
-      <div class="checkbox">
-        <label><input type="checkbox" name="range2"> ₹500 - ₹1000 </label>
+      <div class="radio" (click)="categoryAndPrice(501,1000)">
+        <label><input type="radio" name="range"> ₹501 - ₹1000 </label>
       </div>
-      <div class="checkbox">
-        <label><input type="checkbox" name="range3"> ₹1000 - ₹2000 </label>
+      <div class="radio" (click)="categoryAndPrice(1001,2000)">
+        <label><input type="radio" name="range"> ₹1001 - ₹2000 </label>
       </div>
-      <div class="checkbox">
-        <label><input type="checkbox" name="range4"> more than ₹2000 </label>
+      <div class="radio" (click)="categoryAndPrice(2000,10000)">
+        <label><input type="radio" name="range"> more than ₹2000 </label>
       </div>
     </form>
   </div>
 
   <div class="col-10 bdr-top-left">
-    <app-product-list></app-product-list>
+    <div class="row">
+      <div class="col-3" *ngFor="let l of list">
+        <div class="border bg-white mt-3 p-2 88./rounded-lg">
+          <img class="zoom" src="{{l.image}}" height="200px" width="120px">
+          <div class="text-left m-3">
+            <span><b>{{l.name}}</b></span>
+            <div>{{l.description}}</div>
+            <div>Price: <b>₹{{l.unitPrice}}</b></div>
+            <button class="btn btn-primary mt-1" (click)="onSelect(l)">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 <div class="color pt-3">
