@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HomePageService} from './home-page.service';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,11 +11,14 @@ import {HomePageService} from './home-page.service';
 export class HomePageComponent implements OnInit {
   list;
   category1;
-
-  constructor(private homePageService: HomePageService, private router: Router, private route: ActivatedRoute) {
+  constructor(private homePageService: HomePageService, private router: Router, private route: ActivatedRoute, private service: AppService) {
   }
 
   ngOnInit() {
+    if (!this.service.checkLogin()) {
+      this.router.navigate(['login']);
+    }
+    this.category1 = null;
     this.homePageService.getListFromServer().subscribe((data) => {
       this.list = data;
     });
@@ -31,9 +35,20 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  categoryAndPrice(p1, p2) {
-    this.homePageService.getByCategoryAndPrice(this.category1, p1, p2).subscribe((data) => {
-      this.list = data;
-    });
+  showFilter(p1, p2) {
+    if (!this.category1) {
+      this.homePageService.getByPrice(p1, p2).subscribe((data) => {
+        this.list = data;
+      });
+    } else {
+      this.homePageService.getByCategoryAndPrice(this.category1, p1, p2).subscribe((data) => {
+        this.list = data;
+      });
+    }
+  }
+
+  logout() {
+    this.service.isLoggedIn(false);
+    this.router.navigate(['login']);
   }
 }

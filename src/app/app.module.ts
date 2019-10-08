@@ -9,12 +9,13 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import {HttpClientModule} from '@angular/common/http';
 import {ProductDetailsService} from './product-details/product-details.service';
-import {NavBarService} from './nav-bar/nav-bar.service';
 import {HomePageService} from './home-page/home-page.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {AuthenticationService} from './authentication.service';
+import {AppService} from './app.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {FormsModule} from '@angular/forms';
     ProductDetailsComponent,
     UserCartComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,8 @@ import {FormsModule} from '@angular/forms';
   providers: [
     HomePageService,
     ProductDetailsService,
-    NavBarService
+    AuthenticationService,
+    AppService
   ],
   bootstrap: [AppComponent]
 })
