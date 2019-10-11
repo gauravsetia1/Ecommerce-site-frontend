@@ -11,12 +11,13 @@ import {AppService} from '../app.service';
 export class HomePageComponent implements OnInit {
   list;
   category1;
+  filter;
   constructor(private homePageService: HomePageService, private router: Router, private route: ActivatedRoute, private service: AppService) {
   }
 
   ngOnInit() {
     if (!this.service.checkLogin()) {
-      this.router.navigate(['login']);
+      this.router.navigate(['/login']);
     }
     this.category1 = null;
     this.homePageService.getListFromServer().subscribe((data) => {
@@ -30,6 +31,7 @@ export class HomePageComponent implements OnInit {
 
   category(cat) {
     this.category1 = cat;
+    this.filter = null;
     this.homePageService.getCategory(cat).subscribe((data) => {
       this.list = data;
     });

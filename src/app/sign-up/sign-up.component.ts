@@ -11,23 +11,31 @@ import {Router} from '@angular/router';
 export class SignUpComponent implements OnInit {
 
   constructor(private http: HttpClient, private appService: AppService, private router: Router) { }
-
+  name;
+  phone;
+  gender;
   email;
   password;
-  url = 'http://localhost:2020/users/addUsers';
+  cpassword;
+  url = 'http://localhost:8080/users/addUsers';
   ngOnInit() {
     if (this.appService.checkLogin()) {
       this.router.navigate(['/home']);
     }
   }
   finalData() {
-    const ar = {email: this.email,  password: this.password};
+    // tslint:disable-next-line:triple-equals
+    if (this.password == this.cpassword) {
+    const ar = {email: this.email,  password: this.password, name: this.name, phone: this.phone, gender: this.gender};
     // const json = JSON.stringify(ar);
-    this.http.post(this.url, ar).subscribe(data => {
+    return this.http.post(this.url, ar).subscribe(data => {
       // console.log(json);
       this.router.navigate(['/login']);
     });
-  }
+  } else {
+      alert('Re-Enter password');
+    }
+}
 
 
 }

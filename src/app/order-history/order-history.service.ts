@@ -6,21 +6,14 @@ import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductDetailsService {
+export class OrderHistoryService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getDetails(id) {
+  getOrderHistory() {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders({Authorization: 'Basic ' + token});
-    const url = 'http://localhost:8080/api/items/' + id;
-    return this.http.get(url, {headers});
-  }
-
-  addToCart(id) {
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
-    const url = 'http://localhost:8080/cart/addItem/' + id;
+    const url = 'http://localhost:8080/cart/checkout';
     return this.http.get(url, {headers});
   }
 

@@ -45,16 +45,16 @@
         <label>Price:</label>
       </div>
       <div class="radio" (click)="showFilter(0,500)">
-        <label><input type="radio" name="range"> Less than ₹500</label>
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r1"> Less than ₹500</label>
       </div>
       <div class="radio" (click)="showFilter(501,1000)">
-        <label><input type="radio" name="range"> ₹501 - ₹1000 </label>
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r2"> ₹501 - ₹1000 </label>
       </div>
       <div class="radio" (click)="showFilter(1001,2000)">
-        <label><input type="radio" name="range"> ₹1001 - ₹2000 </label>
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r3"> ₹1001 - ₹2000 </label>
       </div>
       <div class="radio" (click)="showFilter(2000,10000)">
-        <label><input type="radio" name="range"> more than ₹2000 </label>
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r4"> more than ₹2000 </label>
       </div>
     </form>
   </div>

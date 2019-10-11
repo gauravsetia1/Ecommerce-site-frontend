@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.service.checkLogin()) {
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     }
   }
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.email, this.password).subscribe(
       data => {
         this.service.isLoggedIn(true);
-        this.router.navigate(['home']);
+        this.router.navigate(['/home']);
       }
     );
   }

@@ -16,6 +16,11 @@ import {FormsModule} from '@angular/forms';
 import {AuthenticationService} from './authentication.service';
 import {AppService} from './app.service';
 import {HttpClientModule} from '@angular/common/http';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import {UserCartService} from './user-cart/user-cart.service';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { SuccessComponent } from './success/success.component';
+import {OrderHistoryService} from './order-history/order-history.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,9 @@ import {HttpClientModule} from '@angular/common/http';
     UserCartComponent,
     LoginComponent,
     SignUpComponent,
+    MyProfileComponent,
+    OrderHistoryComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,9 @@ import {HttpClientModule} from '@angular/common/http';
     HomePageService,
     ProductDetailsService,
     AuthenticationService,
-    AppService
+    AppService,
+    UserCartService,
+    OrderHistoryService
   ],
   bootstrap: [AppComponent]
 })
