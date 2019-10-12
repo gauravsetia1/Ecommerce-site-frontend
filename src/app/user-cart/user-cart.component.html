@@ -1,5 +1,9 @@
 <div class="container bdr">
   <table class="table table-hover">
+    <tr>
+      <th colspan="3">Products</th>
+      <th colspan="2">Price</th>
+    </tr>
     <tr *ngFor="let pro of product" class="bdr-bottom">
       <td><img src="{{pro.items.image}}" height="200px"></td>
       <td>
@@ -32,7 +36,7 @@
 </div>
 
 <div class="container mt-2 d-flex justify-content-end">
-  <h3>Total Price:- ₹1999</h3>
+  <h3>Total Price:- {{total}}</h3>
 </div>
 
 <div class="d-flex justify-content-around mt-3">

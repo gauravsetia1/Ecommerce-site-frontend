@@ -21,6 +21,7 @@ import {UserCartService} from './user-cart/user-cart.service';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { SuccessComponent } from './success/success.component';
 import {OrderHistoryService} from './order-history/order-history.service';
+import {MyProfileService} from './my-profile/my-profile.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {OrderHistoryService} from './order-history/order-history.service';
     AuthenticationService,
     AppService,
     UserCartService,
-    OrderHistoryService
+    OrderHistoryService,
+    MyProfileService
   ],
   bootstrap: [AppComponent]
 })

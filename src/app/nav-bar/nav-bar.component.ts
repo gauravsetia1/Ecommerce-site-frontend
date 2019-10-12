@@ -11,8 +11,8 @@ export class NavBarComponent implements OnInit {
   constructor(private service: AppService, private router: Router) { }
 
   ngOnInit() {
-    if (this.service.checkLogin()) {
-      this.router.navigate(['home']);
+    if (!this.service.checkLogin()) {
+      this.router.navigate(['/login']);
     }
   }
   logout() {

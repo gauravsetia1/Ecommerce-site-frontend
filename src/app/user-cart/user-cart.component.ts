@@ -11,7 +11,7 @@ import {AppService} from '../app.service';
 })
 export class UserCartComponent implements OnInit {
   product;
-
+  total = 0;
   constructor(private appService: AppService, private userCartService: UserCartService, private router: Router, private route: ActivatedRoute) {
   }
 
@@ -19,14 +19,24 @@ export class UserCartComponent implements OnInit {
     this.appService.showCart().subscribe((data) => {
       this.product = data;
       console.log(data);
-    });
-  }
+      let sum = 0;
+      for (let i = 0; i < this.product.length; i++) {
+        sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
+      }
+      this.total = sum;
+      });
+    }
 
   up(id) {
     this.userCartService.increment1(id).subscribe((data3) => {
       console.log(data3);
       this.appService.showCart().subscribe((data1) => {
         this.product = data1;
+        let sum = 0;
+        for (let i = 0; i < this.product.length; i++) {
+          sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
+        }
+        this.total = sum;
       });
     });
   }
@@ -36,6 +46,11 @@ export class UserCartComponent implements OnInit {
       console.log(data4);
       this.appService.showCart().subscribe((data1) => {
         this.product = data1;
+        let sum = 0;
+        for (let i = 0; i < this.product.length; i++) {
+          sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
+        }
+        this.total = sum;
       });
     });
   }
@@ -45,7 +60,12 @@ export class UserCartComponent implements OnInit {
       /*this.product = data;*/
       this.appService.showCart().subscribe((data1) => {
         this.product = data1;
+        let sum = 0;
+        for (let i = 0; i < this.product.length; i++) {
+          sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
+        }
+        this.total = sum;
       });
     });
-}
+  }
 }

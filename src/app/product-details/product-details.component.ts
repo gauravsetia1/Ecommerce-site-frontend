@@ -29,8 +29,10 @@ export class ProductDetailsComponent implements OnInit {
   addItemsinCart() {
     this.productDetailsService.addToCart(this.productId).subscribe((data) => {
       this.productDetail = data;
+      setTimeout(() => {
+        console.log('added to cart');
+      }, 1000);
       this.router.navigate(['/mycart']);
-      console.log(data);
     });
   }
 
