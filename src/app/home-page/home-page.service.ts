@@ -35,4 +35,11 @@ export class HomePageService {
     const url = 'http://localhost:8080/api/' + price1 + '/' + price2;
     return this.http.get(url, {headers});
   }
+
+  searchName(name) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/api/search/' + name;
+    return this.http.get(url, {headers});
+  }
 }

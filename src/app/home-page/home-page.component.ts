@@ -12,6 +12,7 @@ export class HomePageComponent implements OnInit {
   list;
   category1;
   filter;
+  search;
   constructor(private homePageService: HomePageService, private router: Router, private route: ActivatedRoute, private service: AppService) {
   }
 
@@ -20,6 +21,7 @@ export class HomePageComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.category1 = null;
+    this.filter = null;
     this.homePageService.getListFromServer().subscribe((data) => {
       this.list = data;
     });
@@ -47,6 +49,13 @@ export class HomePageComponent implements OnInit {
         this.list = data;
       });
     }
+  }
+
+  searchForname() {
+    this.filter = null;
+    this.homePageService.searchName(this.search).subscribe(data => {
+      this.list = data;
+    });
   }
 
   logout() {

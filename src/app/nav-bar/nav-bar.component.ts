@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+
   constructor(private service: AppService, private router: Router) { }
 
   ngOnInit() {
@@ -19,6 +20,5 @@ export class NavBarComponent implements OnInit {
     this.service.isLoggedIn(false);
     this.router.navigate(['login']);
   }
-
 
 }

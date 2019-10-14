@@ -20,11 +20,14 @@ export class UserCartComponent implements OnInit {
       this.product = data;
       console.log(data);
       let sum = 0;
+      // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < this.product.length; i++) {
         sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
       }
       this.total = sum;
+      // tslint:disable-next-line:only-arrow-functions
       });
+    this.router.navigate(['/mycart']);
     }
 
   up(id) {
@@ -33,6 +36,7 @@ export class UserCartComponent implements OnInit {
       this.appService.showCart().subscribe((data1) => {
         this.product = data1;
         let sum = 0;
+        // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.product.length; i++) {
           sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
         }
@@ -47,6 +51,7 @@ export class UserCartComponent implements OnInit {
       this.appService.showCart().subscribe((data1) => {
         this.product = data1;
         let sum = 0;
+        // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.product.length; i++) {
           sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
         }
@@ -61,11 +66,25 @@ export class UserCartComponent implements OnInit {
       this.appService.showCart().subscribe((data1) => {
         this.product = data1;
         let sum = 0;
+        // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.product.length; i++) {
           sum = sum + Number(this.product[i].items.unitPrice) * Number(this.product[i].quantity);
         }
         this.total = sum;
       });
+    });
+  }
+
+  details(id) {
+    this.userCartService.getDetails(id).subscribe((data) => {
+      this.router.navigate(['/home/' + id]);
+    });
+  }
+
+  checkoutCart() {
+    this.userCartService.checkout().subscribe(data => {
+      console.log(data);
+      this.router.navigate(['/success']);
     });
   }
 }

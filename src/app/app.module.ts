@@ -50,7 +50,7 @@ import {MyProfileService} from './my-profile/my-profile.service';
     AppService,
     UserCartService,
     OrderHistoryService,
-    MyProfileService
+    MyProfileService,
   ],
   bootstrap: [AppComponent]
 })

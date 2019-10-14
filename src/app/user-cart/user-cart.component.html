@@ -1,3 +1,4 @@
+<div *ngIf="product.length>=1; else elseBlock">
 <div class="container bdr">
   <table class="table table-hover">
     <tr>
@@ -5,9 +6,9 @@
       <th colspan="2">Price</th>
     </tr>
     <tr *ngFor="let pro of product" class="bdr-bottom">
-      <td><img src="{{pro.items.image}}" height="200px"></td>
+      <td><img src="{{pro.items.image}}" height="200px" (click)="details(pro.items.id)"></td>
       <td>
-        <h3>{{pro.items.name}}</h3>
+        <h3 (click)="details(pro.items.id)">{{pro.items.name}}</h3>
         <span class="text-muted" >{{pro.items.description}}</span>
         <div class="form-group mt-3">
           <div class="input-group">
@@ -36,13 +37,22 @@
 </div>
 
 <div class="container mt-2 d-flex justify-content-end">
-  <h3>Total Price:- {{total}}</h3>
+  <h3>Total Price:- ₹{{total}}</h3>
 </div>
 
 <div class="d-flex justify-content-around mt-3">
   <button class="btn btn-primary" routerLink="/home">Continue Shopping</button>
-  <button class="btn btn-primary" routerLink="/success">Proceed To Checkout</button>
+  <button class="btn btn-primary" (click)="checkoutCart()">Proceed To Checkout</button>
+</div>
 </div>
 
-<hr class="mt-3">
+<ng-template #elseBlock>
+  <div class="container bdr text-center">
+    <img src="./assets/images/oops.PNG" alt="oops" height="300px" class="rounded-circle">
+    <h1 class="mt-2">Your Cart is Empty</h1>
+    <button class="btn btn-primary mt-3" routerLink="/home">Continue Shopping</button>
+  </div>
+</ng-template>
+
+<hr class="mt-3 w-75">
 <div class="size text-center text-muted"><i class="material-icons size">copyright</i><span>&nbsp;2019, Shopping Site, Chandigarh</span></div>

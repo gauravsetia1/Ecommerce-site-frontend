@@ -28,4 +28,18 @@ export class UserCartService {
     const url = 'http://localhost:8080/cart/deleteItem/' + id;
     return this.http.get(url, {headers});
   }
+
+  getDetails(id) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/api/items/' + id;
+    return this.http.get(url, {headers});
+  }
+
+  checkout() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/cart/checkout';
+    return this.http.get(url, {headers});
+  }
 }
