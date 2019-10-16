@@ -10,7 +10,7 @@ import {AppService} from '../app.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productId;
-
+user;
   constructor(private productDetailsService: ProductDetailsService, private appService: AppService, private router: Router, private route: ActivatedRoute) {
   }
 
@@ -23,6 +23,9 @@ export class ProductDetailsComponent implements OnInit {
     }),
       this.productDetailsService.getDetails(this.productId).subscribe((data) => {
         this.productDetail = data;
+      }),
+      this.appService.loggedInUser().subscribe(data => {
+        this.user = data;
       });
   }
 

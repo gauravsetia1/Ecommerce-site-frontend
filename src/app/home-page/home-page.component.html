@@ -85,6 +85,10 @@
 
   </div>
 </div>
+
+<div class="menu border bg-primary rounded-circle p-2" *ngIf="user.authorize=='admin'">
+  <span routerLink="/addproduct" class="material-icons text-white" style="font-size: 40px">add</span>
+</div>
 <div class="color pt-3">
   <hr class="m-0">
   <div class="size text-center text-dark pt-2 pb-3"><i class="material-icons size">copyright</i><span>&nbsp;2019, Shopping Site, Chandigarh</span></div>

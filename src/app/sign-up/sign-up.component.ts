@@ -26,13 +26,15 @@ export class SignUpComponent implements OnInit {
   finalData() {
     // tslint:disable-next-line:triple-equals
     if (this.password == this.cpassword) {
-    const ar = {email: this.email,  password: this.password, name: this.name, phone: this.phone, gender: this.gender};
-    // const json = JSON.stringify(ar);
-    return this.http.post(this.url, ar).subscribe(data => {
-      // console.log(json);
-      this.router.navigate(['/login']);
-    });
-  } else {
+      if (this.email != null && this.password != null && this.name != null && this.phone != null && this.gender != null) {
+      const ar = {email: this.email,  password: this.password, name: this.name, phone: this.phone, gender: this.gender};
+      return this.http.post(this.url, ar).subscribe(data => {
+          this.router.navigate(['/login']);
+        });
+      } else {
+        alert('fill all fields');
+      }
+    } else {
       alert('Re-Enter password');
     }
 }

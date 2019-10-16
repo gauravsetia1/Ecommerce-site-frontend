@@ -7,6 +7,7 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 import {MyProfileComponent} from './my-profile/my-profile.component';
 import {SuccessComponent} from './success/success.component';
 import {OrderHistoryComponent} from './order-history/order-history.component';
+import {AddProductComponent} from './add-product/add-product.component';
 
 export const MAIN_ROUTES: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,5 +18,6 @@ export const MAIN_ROUTES: Routes = [
   {path: 'mycart', component: UserCartComponent},
   {path: 'myprofile', component: MyProfileComponent},
   {path: 'success', component: SuccessComponent},
-  {path: 'orderhistory', component: OrderHistoryComponent}
+  {path: 'orderhistory', component: OrderHistoryComponent},
+  {path: 'addproduct', component: AddProductComponent}
 ];

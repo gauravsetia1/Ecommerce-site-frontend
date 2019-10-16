@@ -13,6 +13,7 @@ export class HomePageComponent implements OnInit {
   category1;
   filter;
   search;
+  user;
   constructor(private homePageService: HomePageService, private router: Router, private route: ActivatedRoute, private service: AppService) {
   }
 
@@ -24,7 +25,10 @@ export class HomePageComponent implements OnInit {
     this.filter = null;
     this.homePageService.getListFromServer().subscribe((data) => {
       this.list = data;
-    });
+    }),
+      this.service.loggedInUser().subscribe(data => {
+        this.user = data;
+      });
   }
 
   onSelect(product) {

@@ -4,7 +4,7 @@
     <div class="mt-4">
       <button class="btn btn-primary" (click)="toggle()">Edit Profile</button>
     </div>
-    <div class="mt-4">
+    <div class="mt-4" *ngIf="user.authorize!='admin'">
       <button class="btn btn-primary" routerLink="/orderhistory">Order History</button>
     </div>
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AppService} from '../app.service';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
+import {error} from 'util';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +26,9 @@ export class LoginComponent implements OnInit {
       data => {
         this.service.isLoggedIn(true);
         this.router.navigate(['/home']);
-      }
-    );
+      }, (err) => {
+        alert('Invalid email and password');
+      });
   }
 
   logout() {

@@ -31,4 +31,13 @@ img {
 .zoom:hover {
   transform: scale(1.05);
 }
+.menu
+{
+  position:fixed;
+  bottom:1rem;
+  right:1rem;
+}
+.menu:hover {
+  cursor: pointer;
+}
 
