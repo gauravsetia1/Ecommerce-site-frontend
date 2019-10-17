@@ -8,6 +8,7 @@ import {MyProfileComponent} from './my-profile/my-profile.component';
 import {SuccessComponent} from './success/success.component';
 import {OrderHistoryComponent} from './order-history/order-history.component';
 import {AddProductComponent} from './add-product/add-product.component';
+import {UsersComponent} from './users/users.component';
 
 export const MAIN_ROUTES: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,5 +20,6 @@ export const MAIN_ROUTES: Routes = [
   {path: 'myprofile', component: MyProfileComponent},
   {path: 'success', component: SuccessComponent},
   {path: 'orderhistory', component: OrderHistoryComponent},
-  {path: 'addproduct', component: AddProductComponent}
+  {path: 'addproduct', component: AddProductComponent},
+  {path: 'users', component: UsersComponent}
 ];

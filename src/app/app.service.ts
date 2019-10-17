@@ -30,4 +30,11 @@ export class AppService {
     const url = 'http://localhost:8080/users/logUser';
     return this.http.get(url, {headers});
   }
+
+  getusers() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/users/getUsers';
+    return this.http.get(url, {headers});
+  }
 }

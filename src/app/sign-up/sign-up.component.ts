@@ -9,7 +9,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-
+  users;
+  bool;
   constructor(private http: HttpClient, private appService: AppService, private router: Router) { }
   name;
   phone;
@@ -22,22 +23,35 @@ export class SignUpComponent implements OnInit {
     if (this.appService.checkLogin()) {
       this.router.navigate(['/home']);
     }
+    this.appService.getusers().subscribe(data => {
+          this.users = data;
+        });
   }
   finalData() {
     // tslint:disable-next-line:triple-equals
-    if (this.password == this.cpassword) {
+
+
+    for (let i = 0; i < this.users.length; i++) {
+      if (this.users[i].email == this.email) {
+        alert('Email is Taken');
+        this.bool = 1;
+      }
+    }
+
+    if (this.bool != 1) {
       if (this.email != null && this.password != null && this.name != null && this.phone != null && this.gender != null) {
-      const ar = {email: this.email,  password: this.password, name: this.name, phone: this.phone, gender: this.gender};
-      return this.http.post(this.url, ar).subscribe(data => {
-          this.router.navigate(['/login']);
-        });
+        if (this.password == this.cpassword) {
+          const ar = {email: this.email, password: this.password, name: this.name, phone: this.phone, gender: this.gender};
+          return this.http.post(this.url, ar).subscribe(data => {
+            this.router.navigate(['/login']);
+          });
+        } else {
+          alert('Re-Enter password');
+        }
       } else {
         alert('fill all fields');
       }
-    } else {
-      alert('Re-Enter password');
     }
-}
 
-
+  }
 }

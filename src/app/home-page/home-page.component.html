@@ -23,7 +23,7 @@
   </ul>
 </nav>
 <div *ngIf="category1==null">
-<ngb-carousel class="bg-secondary bdr-top">
+<ngb-carousel class="bg-secondary bdr-top ">
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
       <img src="./assets/images/iball.PNG" alt="iball" height="350px" width="1000px">
@@ -49,17 +49,20 @@
       <div>
         <label>Price:</label>
       </div>
-      <div class="radio" (click)="showFilter(0,500)">
-        <label><input type="radio" name="range" [(ngModel)]="filter" value="r1"> Less than ₹500</label>
+      <div class="radio" (click)="showFilter(0,750)">
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r1"> Less than ₹750</label>
       </div>
-      <div class="radio" (click)="showFilter(501,1000)">
-        <label><input type="radio" name="range" [(ngModel)]="filter" value="r2"> ₹501 - ₹1000 </label>
+      <div class="radio" (click)="showFilter(750,1500)">
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r2"> ₹750 - ₹1500 </label>
       </div>
-      <div class="radio" (click)="showFilter(1001,2000)">
-        <label><input type="radio" name="range" [(ngModel)]="filter" value="r3"> ₹1001 - ₹2000 </label>
+      <div class="radio" (click)="showFilter(2500,5000)">
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r3"> ₹2500 - ₹5000 </label>
       </div>
-      <div class="radio" (click)="showFilter(2000,10000)">
-        <label><input type="radio" name="range" [(ngModel)]="filter" value="r4"> more than ₹2000 </label>
+      <div class="radio" (click)="showFilter(10000,20000)">
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r4"> ₹10000 - ₹20000 </label>
+      </div>
+      <div class="radio" (click)="showFilter(20000,100000)">
+        <label><input type="radio" name="range" [(ngModel)]="filter" value="r5"> more than ₹20000 </label>
       </div>
     </form>
   </div>
@@ -71,7 +74,7 @@
         <h4>No Results Found</h4>
       </div>
       <div class="col-3" *ngFor="let l of list">
-        <div class="border bg-white mt-3 p-2 88./rounded-lg">
+        <div class="border bg-white mt-3 p-2 shd rounded-lg">
           <img class="zoom" src="{{l.image}}" height="200px" width="120px">
           <div class="text-left m-3">
             <span><b>{{l.name}}</b></span>
