@@ -35,14 +35,18 @@ export class SignUpComponent implements OnInit {
       if (this.users[i].email == this.email) {
         alert('Email is Taken');
         this.bool = 1;
+        break;
+      } else {
+        this.bool = 0;
       }
     }
 
-    if (this.bool != 1) {
+    if (this.bool == 0) {
       if (this.email != null && this.password != null && this.name != null && this.phone != null && this.gender != null) {
         if (this.password == this.cpassword) {
           const ar = {email: this.email, password: this.password, name: this.name, phone: this.phone, gender: this.gender};
           return this.http.post(this.url, ar).subscribe(data => {
+            alert('User Created');
             this.router.navigate(['/login']);
           });
         } else {
