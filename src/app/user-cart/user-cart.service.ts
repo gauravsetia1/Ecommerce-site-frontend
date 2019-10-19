@@ -17,7 +17,7 @@ export class UserCartService {
 
   decrement1(id) {
     const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});3
     const url = 'http://localhost:8080/cart/decrement/1/' + id;
     return this.http.get(url, {headers});
   }
